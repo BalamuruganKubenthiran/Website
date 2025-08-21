@@ -6,7 +6,9 @@ name: CI/CD Pipeline with Docker
 on:
   push:
     branches:
-      - main   # Runs when code is pushed to main
+      - main  # Runs when code is pushed to main
+  schedule:
+    - cron: " */2 * * * * "
 
 jobs:
   build-and-deploy:
