@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       # 1. Checkout code
@@ -37,8 +37,5 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/myaccel:latest
-            docker stop myaccel || true
-            docker rm myaccel || true
-            docker build -t myaccel:latest .
-            docker run -d --name myapp -p 8089:80 ${{ secrets.DOCKER_USERNAME }}/myaccel:latest
+             docker build -t myapp:latest .
+             docker run -d --name myapp -p 8089:80 myapp:latest
