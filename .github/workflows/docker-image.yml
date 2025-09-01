@@ -30,7 +30,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/myaccel:latest
 
       # 5. Deploy (example via SSH to a server)
-      - name: Deploy on Server
+      - name: Deploy on Serv
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.SERVER_HOST }}
